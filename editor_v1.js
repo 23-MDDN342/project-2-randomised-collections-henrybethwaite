@@ -96,7 +96,7 @@ function draw () {
      blockyFace(s1);
   }
   if (mode == '3') {
-    simplePurpleFace();
+    firstTestFace(s1);
   }
 
   pop();

@@ -74,7 +74,8 @@ function draw () {
         translate(x, y);
         scale(w/25, h/25);
         if((i+j)%2 == 0) {
-          simplePurpleFace();
+          let headWidth = random(10, 20);
+          firstTestFace(headWidth);
         }
         else {
           thinness_value = random(0, 100);

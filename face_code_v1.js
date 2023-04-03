@@ -52,20 +52,14 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value) {
   }
   
   
-  function simplePurpleFace() {
-    fill(30);
-    noStroke();
-    // head
-    ellipse(0, 0, 20);
-    // eyes
-    fill(255);
-    ellipse(-3, -3, 3);
-    ellipse( 3, -3, 3);
+  function firstTestFace(headWidth) {
+
+    stroke(0,0,255);
+    fill(255)
+    ellipse(0, 0, headWidth, 15);
+
   }
   
-  /*
-   * thinness_value ranges from 0-100 and indicates how thin the face is
-   */
   function blockyFace(thinness_value) {
     // head
     noStroke();
