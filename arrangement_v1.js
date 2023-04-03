@@ -52,20 +52,11 @@ function draw () {
       let y = h/2 + h*i;
       let x = w/2 + w*j;
       if (i == 0) {
-        // center face
-        let eye_value = 2;
-        let tilt_value = random(-45, 45);
-        let mouth_value = random(1, 3);
-        let is_cyclops = random(0, 100);
-        if(is_cyclops < 10) {
-          eye_value = 1;
-          tilt_value = random(-5, 5);
-          mouth_value = random(5, 10);
-        }
         push();
         translate(x, y);
         scale(w/25, h/25);
-        orangeAlienFace(tilt_value, eye_value, mouth_value);
+        let headWidth = random(10, 20);
+        secondFace(headWidth);
         pop();
       }
       else if (i > 0) {
@@ -75,11 +66,11 @@ function draw () {
         scale(w/25, h/25);
         if((i+j)%2 == 0) {
           let headWidth = random(10, 20);
-          firstTestFace(headWidth);
+          firstFace(headWidth);
         }
         else {
-          thinness_value = random(0, 100);
-          blockyFace(thinness_value);
+          let headWidth = random(10, 20);
+          thirdFace(headWidth);
         }
         pop();
       }
