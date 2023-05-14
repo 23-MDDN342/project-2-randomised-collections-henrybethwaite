@@ -4,7 +4,7 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
-const bg_color = [255];
+const bg_color = ['#F9F7F3'];
 let slider1, slider2, slider3, slider4, slider5;
 let slider6, slider7, slider8, slider9, slider10;
 let faceSelector;
@@ -17,11 +17,11 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
-  slider5 = createSlider(0, 100, 50);
+  slider1 = createSlider(0, 10, 6);
+  slider2 = createSlider(0, 10, 0);
+  slider3 = createSlider(0, 3, 0);
+  slider4 = createSlider(0, 100, 0);
+  slider5 = createSlider(0, 100, 0);
   slider6 = createSlider(0, 100, 50);
   slider7 = createSlider(0, 100, 50);
   slider8 = createSlider(0, 100, 50);
@@ -49,8 +49,6 @@ function setup () {
   faceSelector.value('1');
   faceSelector.parent('selector1Container');
 }
-
-
 
 function draw () {
   strokeWeight(0.2);
@@ -84,14 +82,11 @@ function draw () {
 
   push();
   if (mode == '1') {
-   secondFace(s1);
+    secondFace(s1,s2,s3,s4,s5,s6);
   }
 
   if (mode == '2') {
-    thirdFace(s1);
-  }
-  if (mode == '3') {
-    firstFace(s1);
+    firstFace(s1,s2,s3);
   }
 
   pop();

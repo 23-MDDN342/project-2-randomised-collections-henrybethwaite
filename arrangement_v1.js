@@ -17,16 +17,16 @@ function setup () {
   curRandomSeed = int(random(0, 1000));
 
   // rotation in degrees
-  angleMode(DEGREES);
+  //angleMode(DEGREES);
 }
 
 function changeRandomSeed() {
-  curRandomSeed = curRandomSeed + 1;
+  curRandomSeed = curRandomSeed + random(-100,100);
   lastSwapTime = millis();
 }
 
 // global variables for colors
-const bg_color1 = [255]
+const bg_color1 = ['#D28996'] //#F9F7F3
 
 function mouseClicked() {
   changeRandomSeed();
@@ -44,38 +44,49 @@ function draw () {
   background(bg_color1);
   noStroke();
 
-  // draw a 7x4 grid of faces
-  let w = canvasWidth / 7;
-  let h = canvasHeight / 4;
-  for(let i=0; i<4; i++) {
-    for(let j=0; j<7; j++) {
-      let y = h/2 + h*i;
-      let x = w/2 + w*j;
-      if (i == 0) {
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        let headWidth = random(10, 20);
-        secondFace(headWidth);
-        pop();
-      }
-      else if (i > 0) {
-        // all other faces
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        if((i+j)%2 == 0) {
-          let headWidth = random(10, 20);
-          firstFace(headWidth);
-        }
-        else {
-          let headWidth = random(10, 20);
-          thirdFace(headWidth);
-        }
-        pop();
-      }
-    }
-  }
+  strokeWeight(width/6000);
+
+  let w = canvasWidth / 2;
+  let h = canvasHeight / 1;
+
+  //road
+  fill('#C3B397');
+  rect(0,height/1.2,width,height/2)
+  //footpath
+  fill('#F0ECE5');
+  rect(0,height/1.7,width,height/4);
+  fill('#E1D9CB');
+  rect(0,height/1.195,width,height/26);
+  for (let i = 0; i < 1081; i=i+180) {
+    fill('#E1D9CB');
+    beginShape();
+      vertex(-20+i,height/1.7);
+      vertex(-18+i, height/1.7);
+      vertex(90+i,height/1.195);
+      vertex(88+i,height/1.195);
+    endShape();
+}
+
+  push();
+  translate(w/2.5, h/1.8);
+  scale(w/50, h/50);
+  let face2Length = random(0, 5);
+  let eyeLeftX = random(-0.5, 0.5);
+  let eyeLeftY = random(-0.5, 0.5);
+  let eyeRightX = random(-0.5, 0.5);
+  let eyeRightY = random(-0.5, 0.5);
+  let mouthWidth = random(0, 2);
+  secondFace(face2Length,eyeLeftX,eyeLeftY,eyeRightX,eyeRightY,mouthWidth);
+  pop();
+
+  push();
+  translate(w/1.2, h/1.69);
+  scale(w/50, h/50);
+    let faceLength = random(0, 10);
+    let faceWidth = random(0,10);
+    let noseLength = random(0,3);
+    firstFace(faceLength,faceWidth,noseLength);
+  pop();
 }
 
 function keyTyped() {
